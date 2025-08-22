@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="CSS/index.css">
+  <title>Muhammad Malik F ~ Portofolio</title>
+  <meta name="description" content="Portofolio Muhammad Malik F ~ SMK Informatika Fithrah Insani, jurusan PPLG" />
+  <link rel="icon" href="img/fi.png" width="48" height="48" type="image/png">
+</head>
+<body>
+  <!-- ========== LOADING SCREEN ========== -->
+  <div id="loadingScreen" aria-hidden="false">
+    <div class="loader-wrap">
+      <div class="spinner" role="status" aria-label="Memuat"></div>
+      <div class="loading-text">Muhammad Malik F ~ Memuat portofolio</div>
+      <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <i id="progressBar"></i>
+      </div>
+      <div class="loading-sub">Sedang menyiapkan tampilan... </div>
+    </div>
+  </div>
+
+  <!-- ========== NAVBAR ========== -->
+  <header id="siteHeader" role="banner">
+    <div class="logo" aria-hidden="false">
+      <!-- Ganti src dengan logo sekolahmu -->
+      <img src="img/fi.png" alt="Logo SMK Informatika Fithrah Insani">
+      <div class="brand">Muhammad Malik F</div>
+    </div>
+
+    <nav role="navigation" aria-label="Main navigation">
+      <div class="nav-links" id="desktopNav">
+        <a href="#home">Home</a>
+        <a href="#portofolio">Portofolio</a>
+        <a href="#myprojek">My Projek</a>
+        <a href="#proyek-kerja">Projek yang sedang di kerjakan</a>
+        <a id="contactLink" href="#">Contact</a>
+        <a href="#comments">Comments</a>
+        <button class="other-btn" id="otherSitesBtn" aria-haspopup="dialog" aria-expanded="false">My Other Website</button>
+      </div>
+      <!--☰-->
+      <!-- Hamburger / mobile -->
+      <button class="hamburger" id="hambBtn" aria-label="Buka menu">
+        ._.
+      </button>
+    </nav>
+  </header>
+
+  <!-- ========== OFF-CANVAS RIGHT MENU (MOBILE) ========== -->
+  <aside class="offcanvas" id="offcanvasMenu" aria-hidden="true" aria-label="Menu kanan">
+    <button class="close-btn" id="closeOff" aria-label="Tutup menu">✕</button>
+    <div role="menu" aria-label="Menu mobile">
+      <div class="menu-item" data-target="#home" tabindex="0">Home</div>
+      <div class="menu-item" data-target="#portofolio" tabindex="0">Portofolio</div>
+      <div class="menu-item" data-target="#myprojek" tabindex="0">My Projek</div>
+      <div class="menu-item" data-target="#proyek-kerja" tabindex="0">Projek yang sedang di kerjakan</div>
+      <div id="contactLink" class="menu-item" data-target="#" tabindex="0">Contact</div>
+      <div class="menu-item" data-target="#comments" tabindex="0">Comments</div>
+    </div>
+
+    <div style="margin-top:14px;color:var(--muted);font-weight:700">My Other Website</div>
+    <div class="other-sites" id="mobileOtherSites">
+      <!-- contoh kartu kecil - akan di-generate lewat JS (clickable) -->
+    </div>
+  </aside>
+
+  <!-- ========== MAIN ========== -->
+  <main id="home" tabindex="-1">
+    <!-- HERO / INTRO -->
+    <section class="hero" id="portofolio" aria-labelledby="introTitle">
+      <div class="intro">
+        <h1 id="introTitle">Halo, saya Muhammad Malik F</h1>
+        <p>SMK Informatika Fithrah Insani, Kelas 11, jurusan PPLG</p>
+        <p class="muted">Saya membuat projek seputar pengembangan perangkat lunak dan game. Berikut ini adalah kumpulan projek saya.</p>
+        <div class="cta">
+          <!-- Tombol Download CV dihapus sesuai permintaan -->
+          <button class="btn btn-primary" id="contactBtn">Contact</button>
+        </div>
+        <div style="margin-top:18px;color:var(--muted);font-size:14px">
+          <strong>Note:</strong> Klik foto di samping untuk efek flip!
+        </div>
+      </div>
+
+      <div class="avatar-wrap" style="padding-right:10px">
+        <div class="avatar" role="button" tabindex="0" aria-pressed="false" id="avatar" aria-label="Foto profil, tekan untuk membalik">
+          <div class="inner" id="avatarInner">
+            <!-- depan -->
+            <img class="front" src="img/MD2.png" alt="Foto Muhammad Malik F">
+            <!-- belakang -->
+            <img class="back" src="img/index.jpeg" alt="Foto kedua Muhammad Malik F">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MY PROJEK (12) -->
+    <section id="myprojek" aria-labelledby="myprojekTitle">
+      <div class="section-title">
+        <h2 id="myprojekTitle">My Projek</h2>
+        <div style="color:var(--muted)">Projek terkait jurusan PPLG</div>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;margin-top:8px">
+        <select id="filterProjects" style="padding:8px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--fg)">
+          <option value="all">Semua Kategori</option>
+          <option value="web">Web</option>
+          <option value="game">Game</option>
+          <option value="db">Database</option>
+          <option value="uiux">UI/UX</option>
+        </select>
+        <button id="loadMoreProjects" class="btn btn-outline" style="font-weight:700">Muat lebih banyak</button>
+      </div>
+      <div class="grid" id="projectsGrid" aria-live="polite">
+        <!-- cards di-generate oleh JS -->
+      </div>
+    </section>
+
+    <!-- PROJEK YANG SEDANG DI KERJAKAN (12) -->
+    <section id="proyek-kerja" aria-labelledby="proyekTitle">
+      <div class="section-title">
+        <h2 id="proyekTitle">Projek yang sedang di kerjakan</h2>
+        <div style="color:var(--muted)">Sedang dalam proses pengembangan</div>
+      </div>
+      <div class="grid" id="workInProgressGrid">
+        <!-- cards di-generate oleh JS -->
+      </div>
+    </section>
+
+    <!-- COMMENTS -->
+    <section id="comments" aria-labelledby="commentsTitle">
+      <div class="section-title">
+        <h2 id="commentsTitle">Comments</h2>
+        <div style="color:var(--muted)">Tulis komentar, bisa disimpan publik (lihat catatan konfigurasi) atau lokal (default).</div>
+      </div>
+
+      <div class="comments-layout">
+        <div class="comments-list-col">
+          <div class="comments-box" id="commentsList">
+            <!-- komentar di-generate -->
+          </div>
+        </div>
+
+        <aside class="comments-form-col">
+          <div class="comments-box">
+            <form id="commentForm">
+              <label for="name">Nama</label><br>
+              <input id="name" name="name" required style="width:100%;padding:8px;margin-top:6px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--fg)"><br>
+              <label for="message" style="margin-top:8px;display:block">Pesan</label>
+              <textarea id="message" name="message" required rows="4" style="width:100%;padding:8px;margin-top:6px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--fg)"></textarea>
+              <div style="display:flex;gap:8px;margin-top:10px">
+                <button class="btn btn-primary" type="submit">Kirim</button>
+                <button class="btn btn-outline" type="button" id="clearComments">Hapus Semua</button>
+              </div>
+            </form>
+            <div style="margin-top:12px;font-size:13px;color:var(--muted)">
+              <strong>Catatan:</strong> Untuk komentar yang benar-benar dapat dibaca semua orang, isi di bagian <code>&lt;script&gt;</code> dengan endpoint publik. Jika kosong, komentar hanya disimpan di browser (localStorage).
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Muhammad Malik F ~ SMK Informatika Fithrah Insani
+    </footer>
+    <script src="JS/config.js"></script>
+    <script src="JS/index.js"></script>
+    <script>
+  const waLink = window.__ENV?.NOMOR_MALIK || "#";
+  const contactBtn = document.getElementById("contactBtn"); // tombol contact kamu
+  if (contactBtn) {
+    contactBtn.textContent = "Hubungi via WhatsApp";
+    contactBtn.href = waLink;  // jadi langsung ke wa.me
+  }
+</script>
+
+  </main>
+</body>
+</html>
