@@ -1,280 +1,287 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="stylesheet" href="CSS/index.css">
-  <title>Muhammad Malik F ~ Portofolio</title>
-  <meta name="description" content="Portofolio Muhammad Malik F ~ SMK Informatika Fithrah Insani, jurusan PPLG" />
-  <link rel="icon" href="img/MD2.png" width="48" height="48" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Muhammad Malik Fajar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/text.css">
 </head>
 <body>
-  <!-- ========== LOADING SCREEN ========== -->
-  <div id="loadingScreen" aria-hidden="false">
-    <div class="loader-wrap">
-      <div class="spinner" role="status" aria-label="Memuat"></div>
-      <div class="loading-text">Muhammad Malik F ~ Memuat portofolio</div>
-      <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-        <i id="progressBar"></i>
-      </div>
-      <div class="loading-sub">Sedang menyiapkan tampilan... </div>
-    </div>
-  </div>
-
-  <!-- ========== NAVBAR ========== -->
-  <header id="siteHeader" role="banner">
-    <div class="logo" aria-hidden="false">
-      <!-- Ganti src dengan logo sekolahmu -->
-      <img src="img/fi.png" alt="Logo SMK Informatika Fithrah Insani">
-      <div class="brand">Muhammad Malik F</div>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loader">
+            <div class="loading-text">LOADING</div>
+        </div>
     </div>
 
-    <nav role="navigation" aria-label="Main navigation">
-      <div class="nav-links" id="desktopNav">
-        <a href="#home">Home</a>
-        <a href="#portofolio">Portofolio</a>
-        <a href="#myprojek">My Projek</a>
-        <a href="#proyek-kerja">Projek yang sedang di kerjakan</a>
-        <a id="contactLink" href="https://wa.me/628891983723" target="_blank" rel="noopener noreferrer">Contact</a>
-        <a href="#comments">Comments</a>
-        <button class="other-btn" id="otherSitesBtn" aria-haspopup="dialog" aria-expanded="false">My Other Website</button>
-      </div>
-      <!--☰-->
-      <!-- Hamburger / mobile -->
-      <button class="hamburger" id="hambBtn" aria-label="Buka menu">
-        ._.
-      </button>
-    </nav>
-  </header>
-
-  <!-- ========== OFF-CANVAS RIGHT MENU (MOBILE) ========== -->
-  <aside class="offcanvas" id="offcanvasMenu" aria-hidden="true" aria-label="Menu kanan">
-    <button class="close-btn" id="closeOff" aria-label="Tutup menu">✕</button>
-    <div role="menu" aria-label="Menu mobile">
-      <div class="menu-item" data-target="#home" tabindex="0">Home</div>
-      <div class="menu-item" data-target="#portofolio" tabindex="0">Portofolio</div>
-      <div class="menu-item" data-target="#myprojek" tabindex="0">My Projek</div>
-      <div class="menu-item" data-target="#proyek-kerja" tabindex="0">Projek yang sedang di kerjakan</div>
-      <a class="menu-item" href="https://wa.me/628891983723" target="_blank" rel="noopener noreferrer">Contact</a>
-      <div class="menu-item" data-target="#comments" tabindex="0">Comments</div>
-    </div>
-
-    <div style="margin-top:14px;color:var(--muted);font-weight:700">My Other Website</div>
-    <div class="other-sites" id="mobileOtherSites">
-      <!-- contoh kartu kecil - akan di-generate lewat JS (clickable) -->
-    </div>
-  </aside>
-
-  <!-- ========== MAIN ========== -->
-  <main id="home" tabindex="-1">
-    <!-- HERO / INTRO -->
-    <section class="hero" id="portofolio" aria-labelledby="introTitle">
-      <div class="intro">
-        <h1 id="introTitle">Halo, saya Muhammad Malik F</h1>
-        <p>SMK Informatika Fithrah Insani, Kelas 11, jurusan PPLG</p>
-        <p class="muted">Saya Hanyalah Orang biasa dengan sifat pendiam dan dingin, tapi diam diam membuat projek seputar pengembangan perangkat lunak dan game.</p>
-        <div class="cta">
-          <!-- Tombol Download CV dihapus sesuai permintaan -->
-          <button class="btn btn-primary" id="contactBtn">Contact</button>
-        </div>
-        <div style="margin-top:18px;color:var(--muted);font-size:14px">
-          <strong>Note:</strong> Klik foto di samping untuk efek flip!
-        </div>
-      </div>
-
-      <div class="avatar-wrap" style="padding-right:10px">
-        <div class="avatar" role="button" tabindex="0" aria-pressed="false" id="avatar" aria-label="Foto profil, tekan untuk membalik">
-          <div class="inner" id="avatarInner">
-            <!-- depan -->
-            <img class="front" src="img/fotom.jpeg" alt="Foto Pertama Muhammad Malik F">
-            <!-- belakang -->
-            <img class="back" src="img/MD2.png" alt="Foto Kedua Muhammad Malik F">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MY PROJEK (12) -->
-    <section id="myprojek" aria-labelledby="myprojekTitle">
-      <div class="section-title">
-        <h2 id="myprojekTitle">My Projek</h2>
-        <div style="color:var(--muted)">Projek terkait Penjurusan (Di sekolah maupun saya kerjakan di rumah)</div>
-      </div>
-      <div style="display:flex;gap:10px;align-items:center;margin-top:8px">
-        <select id="filterProjects" style="padding:8px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--fg)">
-          <option value="all">Semua Kategori</option>
-          <option value="web">Web</option>
-          <option value="game">Game</option>
-          <option value="db">Database</option>
-          <option value="uiux">UI/UX</option>
-        </select>
-        <button id="loadMoreProjects" class="btn btn-outline" style="font-weight:700">Muat lebih banyak</button>
-      </div>
-      <div class="grid" id="projectsGrid" aria-live="polite">
-
-        <!-- cards di-generate oleh JS -->
-        <!-- Tambahkan projek satu-per-satu statis di HTML -->
-        <article class="card" data-id="p1">
-          <div class="thumb"><img src="img/projekkbaru1.png" alt="Membuat Website"></div>
-          <h4>Membuat Website (Tema Sederhana)</h4>
-          <p>Membuat Website dengan tema hitam putih serta layout yang responsif. Dengan Menggunakan HTML, CSS Dan JS.</p>
-          <div class="actions">
-            <button class="btn btn-primary btn-detail" style="font-size:13px">Detail</button>
-          </div>
-        </article>
-
-        <article class="card" data-id="p1">
-          <div class="thumb"><img src="img/website2.png" alt="Membuat Website"></div>
-          <h4>Membuat Website Dengan Tema Super Responsif + Banyak Efek</h4>
-          <p>Membuat Website dengan tema Warna warni serta layout yang super responsif dan banyak efek. Dengan Menggunakan HTML, CSS Dan JS.</p>
-          <div class="actions">
-            <button class="btn btn-primary btn-detail" style="font-size:13px">Detail</button>
-          </div>
-        </article>
-
-        <article class="card" data-id="p2">
-          <div class="thumb"><img src="img/trackinghand.jpeg" alt="Aplikasi Kasir"></div>
-          <h4>Tracking Hand</h4>
-          <p>Membuat Pendeteksi tangan menggunakan Python</p>
-          <div class="actions">
-            <button class="btn btn-primary btn-detail" style="font-size:13px">Detail</button>
-          </div>
-        </article>
-
-        <article class="card" data-id="p2">
-          <div class="thumb"><img src="img/botwa2.png" alt="Bot WhatsApp"></div>
-          <h4>Bot WhatsApp</h4>
-          <p>Membuat Bot WhatsApp menggunakan JavaScript dan NodeJS</p>
-          <div class="actions">
-            <button class="btn btn-primary btn-detail" style="font-size:13px">Detail</button>
-          </div>
-        </article>
-
-        <article class="card" data-id="p2">
-          <div class="thumb"><img src="img/ssfigma.jpeg" alt="Membuat Desain Figma"></div>
-          <h4>Membuat Desain UI / UX</h4>
-          <p>Membuat Desain UI / UX Menggunakan Figma</p>
-          <div class="actions">
-            <button class="btn btn-primary btn-detail" style="font-size:13px">Detail</button>
-          </div>
-        </article>
-
-        <article class="card" data-id="w2">
-          <div class="thumb"><img src="img/pychatbot.png" alt="Chatbot Offline Dan Online"></div>
-          <h4>Chatbot Offline Dan Online</h4>
-          <p>Membuat Chatbot menggunakan Python dan beberapa Library seperti yt_dlp, beautifulsoup4 dan lain lain.</p>
-          <div class="actions">
-            <button class="btn btn-primary btn-detail" style="font-size:13px">Detail</button>
-          </div>
-        </article>
-
-        <article class="card" data-id="p2">
-          <div class="thumb"><img src="https://picsum.photos/seed/p2/600/400" alt="Membuat Game"></div>
-          <h4>Membuat Game</h4>
-          <p>Membuat Game menggunakan Unity dan C#</p>
-          <div class="actions">
-            <button class="btn btn-primary btn-detail" style="font-size:13px">Detail</button>
-          </div>
-        </article>
-
-        <article class="card" data-id="p2">
-          <div class="thumb"><img src="img/desain.png" alt="Membuat Desain Menggunakan Canva"></div>
-          <h4>Membuat Desain Digital</h4>
-          <p>Membuat Desain Menggunakan Canva</p>
-          <div class="actions">
-            <button class="btn btn-primary btn-detail" style="font-size:13px">Detail</button>
-          </div>
-        </article>
-      </div>
-
-    </section>
-
-
-    <!-- PROJEK YANG SEDANG DI KERJAKAN (12) -->
-    <section id="proyek-kerja" aria-labelledby="proyekTitle">
-      <div class="section-title">
-        <h2 id="proyekTitle">Projek yang sedang di kerjakan</h2>
-        <div style="color:var(--muted)">Sedang dalam proses pengembangan</div>
-      </div>
-      <div class="grid" id="workInProgressGrid">
-        <!-- cards di-generate oleh JS -->
-        <!-- Tambahkan WIP satu-per-satu statis di HTML -->
-        <article class="card" data-id="w1">
-          <div class="thumb"><img src="https://picsum.photos/seed/w1/600/400" alt="Game Edukasi"></div>
-          <h4>Membuat Website khusus untuk OSIS SMK Informatika Fithrah Insani</h4>
-          <p>Prototipe website untuk OSIS SMK Informatika Fithrah Insani. masih menggunakan HTML, CSS Dan JS serta tambahan efek yang bagus agar tertarik (meskipun saya bukan anggota OSIS, saya sebagai jurusan PPLG membuat website adalah hobiku)</p>
-          <div class="actions">
-            <button class="btn btn-primary btn-detail" style="font-size:13px">Detail</button>
-          </div>
-        </article>
-
-        <article class="card" data-id="w2">
-          <div class="thumb"><img src="img/speech.png" alt="Speech Recognition"></div>
-          <h4>Speech Recognition</h4>
-          <p>Menangkap suara dan menjalankan perintah menggunakan Python dan menggunakan library SpeechRecognition.</p>
-          <div class="actions">
-            <button class="btn btn-primary btn-detail" style="font-size:13px">Detail</button>
-          </div>
-        </article>
-
-        <article class="card" data-id="w2">
-          <div class="thumb"><img src="img/pychatbot.png" alt="Chatbot Offline Dan Online"></div>
-          <h4>Chatbot Offline Dan Online (Update)</h4>
-          <p>Membuat Chatbot menggunakan Python dan beberapa Library seperti yt_dlp, beautifulsoup4 dan lain lain. dan saya menambahkan fitur baru seperti cari informasi di website, password gennerator, serta menambahkan AI dengan API's Keys agar tidak terlihat membosankan</p>
-          <div class="actions">
-            <button class="btn btn-primary btn-detail" style="font-size:13px">Detail</button>
-          </div>
-        </article>
-
-        <article class="card" data-id="w2">
-          <div class="thumb"><img src="img/figma.png" alt="UI/UX Redesign"></div>
-          <h4>UI/UX Redesign</h4>
-          <p>Perbaikan tampilan Figma agar lebih responsif.</p>
-          <div class="actions">
-            <button class="btn btn-primary btn-detail" style="font-size:13px">Detail</button>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- COMMENTS -->
-    <section id="comments" aria-labelledby="commentsTitle">
-      <div class="section-title">
-        <h2 id="commentsTitle">Comments</h2>
-        <div style="color:var(--muted)">Tulis komentar, bisa disimpan publik (lihat catatan konfigurasi) atau lokal (default).</div>
-      </div>
-
-      <div class="comments-layout">
-        <div class="comments-list-col">
-          <div class="comments-box" id="commentsList">
-            <!-- komentar di-generate -->
-          </div>
-        </div>
-
-        <aside class="comments-form-col">
-          <div class="comments-box">
-            <form id="commentForm">
-              <label for="name">Nama</label><br>
-              <input id="name" name="name" required style="width:100%;padding:8px;margin-top:6px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--fg)"><br>
-              <label for="message" style="margin-top:8px;display:block">Pesan</label>
-              <textarea id="message" name="message" required rows="4" style="width:100%;padding:8px;margin-top:6px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--fg)"></textarea>
-              <div style="display:flex;gap:8px;margin-top:10px">
-                <button class="btn btn-primary" type="submit">Kirim</button>
-                <button class="btn btn-outline" type="button" id="clearComments">Hapus Semua</button>
-              </div>
-            </form>
-            <div style="margin-top:12px;font-size:13px;color:var(--muted)">
-              <strong>Catatan:</strong> Sepertinya Komentar anda tidak bisa dilihat oleh semua orang, akan kami perbaiki secepat mungkin.
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">MF</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Beranda</a></li>
+                <li><a href="#about" class="nav-link">Tentang</a></li>
+                <li><a href="#goals" class="nav-link">Cita-cita</a></li>
+                <li><a href="#current-projects" class="nav-link">Projek Saat Ini</a></li>
+                <li><a href="#completed-projects" class="nav-link">Projek Selesai</a></li>
+                <li><a href="#comments" class="nav-link">Komentar</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-          </div>
-        </aside>
-      </div>
+        </div>
+    </nav>
+
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+
+    <!-- Home Section -->
+    <section id="home" class="active">
+        <h1 class="section-title">Perkenalan</h1>
+        <div class="home-container">
+            <div class="home-content">
+                <h1>Muhammad Malik Fajar</h1>
+                <h2>Kelas 11 SMK Informatika Fithrah Insani</h2>
+                <p>Selamat datang di portfolio pribadi saya. Di sini Anda dapat mengetahui lebih lanjut tentang saya, proyek yang sedang saya kerjakan, dan proyek yang telah saya selesaikan.</p>
+                <p>Saya seorang pelajar yang memiliki minat besar di bidang teknologi, khususnya pemrograman dan pengembangan web.</p>
+            </div>
+            <div class="home-image">
+                <img src="img/fi.png" alt="Profil Muhammad Malik Fajar" class="profile-img" id="profile-img">
+                <img src="img/fotom.jpeg" alt="Profil Muhammad Malik Fajar 2" class="profile-img-secondary" id="profile-img-secondary">
+            </div>
+        </div>
     </section>
 
+    <!-- About Section -->
+    <section id="about">
+        <h1 class="section-title">Tentang Saya</h1>
+        <div class="about-content">
+            <p class="about-text">
+                Perkenalkan nama saya Muhammad Malik Fajar, saya kelas 11 sekolah SMK Informatika Fithrah Insani. 
+                Saya memiliki minat yang besar di bidang teknologi, khususnya dalam pemrograman. Hobi saya adalah 
+                programming, dan saya senang menghabiskan waktu untuk mengembangkan berbagai jenis aplikasi dan website.
+            </p>
+            <p class="about-text">
+                Saya tinggal di Indonesia, sebuah negara dengan budaya yang beragam dan komunitas teknologi yang 
+                berkembang pesat. Selain programming, saya juga tertarik dengan bidang keamanan siber dan desain 
+                antarmuka pengguna (UI/UX).
+            </p>
+            <div class="about-details">
+                <div class="detail-card">
+                    <h3><i class="fas fa-code"></i> Keahlian</h3>
+                    <p>HTML, CSS, JavaScript, Python, NodeJS, Figma, TypeScript, CSharp, C, C++, PHP, SQL,</p>
+                </div>
+                <div class="detail-card">
+                    <h3><i class="fas fa-graduation-cap"></i> Pendidikan</h3>
+                    <p>SMK Informatika Fithrah Insani - Jurusan Pengembangan Perangkat Lunak Dan Game</p>
+                </div>
+                <div class="detail-card">
+                    <h3><i class="fas fa-heart"></i> Minat</h3>
+                    <p>Programming, Web Development, UI/UX Design, Cyber Security</p>
+                </div>
+                <div class="detail-card">
+                    <h3><i class="fas fa-map-marker-alt"></i> Lokasi</h3>
+                    <p>Jawa Barat, Indonesia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Goals Section -->
+    <section id="goals">
+        <h1 class="section-title">Cita-cita & Kampus Impian</h1>
+        <div class="goals-content">
+            <div class="career-goals">
+                <h2>Cita-cita Karir</h2>
+                <div class="goal-cards">
+                    <div class="goal-card">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Programmer</h3>
+                        <p>Menjadi seorang programmer profesional yang dapat mengembangkan berbagai jenis aplikasi.</p>
+                    </div>
+                    <div class="goal-card">
+                        <i class="fas fa-globe"></i>
+                        <h3>Web Development</h3>
+                        <p>Spesialisasi dalam pengembangan website modern dan responsif.</p>
+                    </div>
+                    <div class="goal-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Ethical Hacker</h3>
+                        <p>Menjadi ahli keamanan siber yang membantu melindungi sistem dari ancaman.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="dream-universities">
+                <h2>Kampus Impian</h2>
+                <div class="university-cards">
+                    <div class="university-card">
+                        <img src="img/LOGO POLBAN 4K.png" alt="Polban Logo">
+                        <h3>Politeknik Negeri Bandung</h3>
+                        <p>Kampus vokasi terkemuka di Indonesia</p>
+                    </div>
+                    <div class="university-card">
+                        <img src="img/logo_itb_1024.png" alt="ITB Logo">
+                        <h3>Institut Teknologi Bandung</h3>
+                        <p>Salah satu universitas teknologi terbaik di Indonesia</p>
+                    </div>
+                    <div class="university-card">
+                        <img src="img/hk275uai3svv15n60gtm7jt20t.png" alt="Binus Logo">
+                        <h3>Bina Nusantara University</h3>
+                        <p>Universitas swasta terkemuka dengan fokus pada teknologi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Projects Section -->
+    <section id="current-projects">
+        <h1 class="section-title">Projek Saat Ini</h1>
+        <div class="projects-content">
+            <div class="project-cards">
+                <div class="project-card">
+                    <img src="img/projek1.png" alt="Website Project" class="project-image">
+                    <div class="project-details">
+                        <h3 class="project-title">Pengembangan Website</h3>
+                        <p class="project-description">Membuat website modern menggunakan HTML, CSS, dan JavaScript dengan fitur-fitur interaktif.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fab fa-html5"></i> HTML</span>
+                            <span class="tech-tag"><i class="fab fa-css3-alt"></i> CSS</span>
+                            <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="img/projek2.png" alt="Chatbot Project" class="project-image">
+                    <div class="project-details">
+                        <h3 class="project-title">Chatbot AI</h3>
+                        <p class="project-description">Mengembangkan chatbot cerdas menggunakan Python dengan kemampuan pemrosesan bahasa alami.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+                            <span class="tech-tag"><i class="fas fa-robot"></i> NLP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="img/figma.png" alt="UI/UX Project" class="project-image">
+                    <div class="project-details">
+                        <h3 class="project-title">UI/UX Design</h3>
+                        <p class="project-description">Merancang antarmuka pengguna untuk aplikasi mobile dan web menggunakan Figma.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fab fa-figma"></i> Figma</span>
+                            <span class="tech-tag"><i class="fas fa-paint-brush"></i> Design</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="img/speech.png" alt="Voice Assistant Project" class="project-image">
+                    <div class="project-details">
+                        <h3 class="project-title">Voice Assistant</h3>
+                        <p class="project-description">Membuat asisten suara seperti Jarvis menggunakan Python dan YAML untuk konfigurasi.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+                            <span class="tech-tag"><i class="fas fa-microphone"></i> Speech</span>
+                            <span class="tech-tag">YAML</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Completed Projects Section -->
+    <section id="completed-projects">
+        <h1 class="section-title">Projek Selesai</h1>
+        <div class="projects-content">
+            <div class="project-cards">
+                <div class="project-card">
+                    <img src="img/website2.png" alt="Simple Website" class="project-image">
+                    <div class="project-details">
+                        <h3 class="project-title">Website Sederhana</h3>
+                        <p class="project-description">Membuat website statis sederhana menggunakan HTML, CSS, dan JavaScript.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fab fa-html5"></i> HTML</span>
+                            <span class="tech-tag"><i class="fab fa-css3-alt"></i> CSS</span>
+                            <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="img/botwa2.png" alt="WhatsApp Bot" class="project-image">
+                    <div class="project-details">
+                        <h3 class="project-title">Bot WhatsApp</h3>
+                        <p class="project-description">Mengembangkan bot WhatsApp otomatis menggunakan JavaScript dan NodeJS.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
+                            <span class="tech-tag"><i class="fab fa-node-js"></i> NodeJS</span>
+                            <span class="tech-tag"><i class="fab fa-whatsapp"></i> WhatsApp API</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="img/trackinghand.jpeg" alt="Hand Tracking" class="project-image">
+                    <div class="project-details">
+                        <h3 class="project-title">Hand Tracking</h3>
+                        <p class="project-description">Membuat aplikasi pelacakan tangan menggunakan Python dan library computer vision.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+                            <span class="tech-tag"><i class="fas fa-video"></i> Computer Vision</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="img/ssfigma.jpeg" alt="Simple UI/UX" class="project-image">
+                    <div class="project-details">
+                        <h3 class="project-title">UI/UX Sederhana</h3>
+                        <p class="project-description">Merancang antarmuka pengguna sederhana untuk aplikasi mobile menggunakan Figma.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fab fa-figma"></i> Figma</span>
+                            <span class="tech-tag"><i class="fas fa-mobile-alt"></i> Mobile Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comments Section -->
+    <section id="comments">
+        <h1 class="section-title">Komentar (Belum bisa di Publikasikan, akan saya tangani segera)</h1>
+        <div class="comments-content">
+            <div class="comment-form">
+                <h2>Tinggalkan Komentar</h2>
+                <form id="comment-form">
+                    <div class="form-group">
+                        <label for="name">Nama</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">Komentar</label>
+                        <textarea id="comment" name="comment" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Kirim Komentar</button>
+                </form>
+            </div>
+            <div class="comments-list" id="comments-list">
+                <!-- Comments will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-      © <span id="year"></span> Muhammad Malik F ~ SMK Informatika Fithrah Insani ~ All Right Reversed
-      <link rel="stylesheet" href="CSS/text.css">
-<div class="tag-list">
+        <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p>&copy; 2025 Muhammad Malik Fajar. All rights reserved.</p>
+        <div class="tag-list">
     <div class="pindah">
         <div class="tag"><span>#</span> Python</div>
         <div class="tag"><span>#</span> JavaScript</div>
@@ -357,8 +364,6 @@
     </div>
 </div>
     </footer>
-    <script src="JS/config.js"></script>
-    <script src="JS/index.js"></script>
-  </main>
+    <script src="js/script.js"></script>
 </body>
 </html>
