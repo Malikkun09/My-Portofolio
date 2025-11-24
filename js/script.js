@@ -1,124 +1,150 @@
-// Loading screen functionality
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const loadingScreen = document.getElementById('loading-screen');
-                loadingScreen.classList.add('hidden');
-            }, 1500); // Loading screen will be visible for 1.5 seconds
-        });
+document.addEventListener('DOMContentLoaded', () => {
 
-        // Navigation functionality
-        document.addEventListener('DOMContentLoaded', () => {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const sections = document.querySelectorAll('section');
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinksContainer = document.querySelector('.nav-links');
-            
-            // Profile image toggle
-            const profileImg = document.getElementById('profile-img');
-            const profileImgSecondary = document.getElementById('profile-img-secondary');
-            
-            profileImg.addEventListener('click', () => {
-                profileImgSecondary.classList.toggle('show');
-            });
-            
-            // Menu toggle for mobile
-            menuToggle.addEventListener('click', () => {
-                navLinksContainer.classList.toggle('active');
-            });
-            
-            // Navigation functionality
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    
-                    // Remove active class from all links and sections
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    sections.forEach(s => s.classList.remove('active'));
-                    
-                    // Add active class to clicked link
-                    link.classList.add('active');
-                    
-                    // Show corresponding section
-                    const targetId = link.getAttribute('href').substring(1);
-                    document.getElementById(targetId).classList.add('active');
-                    
-                    // Close mobile menu if open
-                    navLinksContainer.classList.remove('active');
-                });
-            });
-            
-            // Comments functionality
-            const commentForm = document.getElementById('comment-form');
-            const commentsList = document.getElementById('comments-list');
-            const notification = document.getElementById('notification');
-            
-            // Load comments from localStorage or initialize with empty array
-            let comments = JSON.parse(localStorage.getItem('comments')) || [];
-            
-            // Function to display comments
-            function displayComments() {
-                commentsList.innerHTML = '';
-                
-                if (comments.length === 0) {
-                    commentsList.innerHTML = '<p class="about-text">Belum ada komentar. Jadilah yang pertama!</p>';
-                    return;
-                }
-                
-                comments.forEach(comment => {
-                    const commentItem = document.createElement('div');
-                    commentItem.className = 'comment-item';
-                    
-                    const date = new Date(comment.date);
-                    const formattedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
-                    
-                    commentItem.innerHTML = `
-                        <div class="comment-header">
-                            <span class="comment-author">${comment.name}</span>
-                            <span class="comment-date">${formattedDate}</span>
-                        </div>
-                        <p class="comment-text">${comment.comment}</p>
-                    `;
-                    
-                    commentsList.appendChild(commentItem);
-                });
+    // --- 1. Loading Screen ---
+    const loader = document.getElementById('loader');
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+                startTypingEffect();
+            }, 500);
+        }, 1500); // Durasi loader
+    });
+
+    // --- 2. Efek Mengetik di Hero ---
+    const words = ["Coding", "Games", "Anime", "Cyber Security", "UI / UX Designer", "Website", "AI Algoritma", "AI Research", "HIDUP JOKOWI"];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 100;
+    const deletingSpeed = 50;
+    const pauseTime = 2000;
+    const changingTextElement = document.getElementById('changing-text');
+
+    function typeWriter() {
+        if (!changingTextElement) return; // Berhenti jika elemen tidak ada
+
+        const currentWord = words[wordIndex];
+
+        if (!isDeleting) {
+            changingTextElement.textContent = currentWord.substring(0, charIndex + 1);
+            charIndex++;
+            if (charIndex === currentWord.length) {
+                isDeleting = true;
+                setTimeout(typeWriter, pauseTime);
+                return;
             }
-            
-            // Display comments on page load
-            displayComments();
-            
-            // Handle comment form submission
-            commentForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                
-                const name = document.getElementById('name').value;
-                const comment = document.getElementById('comment').value;
-                
-                // Create new comment object
-                const newComment = {
-                    name: name,
-                    comment: comment,
-                    date: new Date().toISOString()
-                };
-                
-                // Add comment to array
-                comments.unshift(newComment);
-                
-                // Save to localStorage
-                localStorage.setItem('comments', JSON.stringify(comments));
-                
-                // Display updated comments
-                displayComments();
-                
-                // Reset form
-                commentForm.reset();
-                
-                // Show notification
-                notification.textContent = 'Komentar berhasil ditambahkan!';
-                notification.classList.add('show');
-                
-                // Hide notification after 3 seconds
-                setTimeout(() => {
-                    notification.classList.remove('show');
-                }, 3000);
-            });
+        } else {
+            changingTextElement.textContent = currentWord.substring(0, charIndex - 1);
+            charIndex--;
+            if (charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+            }
+        }
+        const speed = isDeleting ? deletingSpeed : typingSpeed;
+        setTimeout(typeWriter, speed);
+    }
+
+    function startTypingEffect() {
+        setTimeout(typeWriter, 500);
+    }
+
+    // --- 3. Efek Scroll untuk Navbar ---
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // --- 4. Toggle Menu Mobile ---
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
         });
+    });
+
+    // --- 5. Efek Animasi Skill Bar Saat Di-Scroll (YANG DIPERBAIKI) ---
+    const skillBars = document.querySelectorAll('.progress-fill');
+
+    // Cek apakah ada skill bar di halaman
+    if (skillBars.length > 0) {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5 // Memicu saat 50% elemen terlihat
+        };
+
+        // Map to hold active timers for each bar so we can stop the loop later
+        const activeTimers = new WeakMap();
+
+        function startLoop(bar) {
+            if (activeTimers.has(bar)) return; // already running
+            const maxWidth = bar.dataset.width || '100%';
+            // Start from 0 width
+            bar.style.width = '0%';
+            let increasing = true;
+
+            // define a step function that toggles the bar width
+            const step = () => {
+                // if not running, exit
+                if (!activeTimers.has(bar)) return;
+                bar.style.width = increasing ? maxWidth : '0%';
+                increasing = !increasing;
+                const delay = 1600; // match CSS transition (1.5s) + margin
+                const id = setTimeout(step, delay);
+                activeTimers.set(bar, id);
+            };
+
+            // kick off the loop
+            const id = setTimeout(step, 50);
+            activeTimers.set(bar, id);
+        }
+
+        function stopLoop(bar) {
+            if (!activeTimers.has(bar)) return;
+            clearTimeout(activeTimers.get(bar));
+            activeTimers.delete(bar);
+            // reset to 0 width when leaving the viewport
+            bar.style.width = '0%';
+        }
+
+        const observerCallback = (entries) => {
+            entries.forEach(entry => {
+                const progressBar = entry.target;
+                if (entry.isIntersecting) {
+                    // start looping when visible
+                    console.log(`Start looping skill bar: ${progressBar.dataset.width}`);
+                    startLoop(progressBar);
+                } else {
+                    // stop looping when not visible
+                    stopLoop(progressBar);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        // Mulai mengamati setiap progress bar
+        skillBars.forEach(bar => {
+            observer.observe(bar);
+        });
+    }
+
+    // --- 6. Efek Flip Card ---
+    const dreamsCard = document.getElementById('dreamsCard');
+    if(dreamsCard) {
+        dreamsCard.addEventListener('click', () => {
+            dreamsCard.classList.toggle('flipped');
+        });
+    }
+});
