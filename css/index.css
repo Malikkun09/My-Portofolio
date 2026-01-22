@@ -81,8 +81,6 @@
       box-shadow:0 8px 32px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1);
       border:1px solid rgba(255,255,255,0.08);
       transition: var(--transition);
-      z-index: 10001;
-      pointer-events: auto;
     }
     .brand{
       font-weight:700;font-size:1.1rem;letter-spacing:0.5px;
@@ -150,7 +148,6 @@
     .hero{
       min-height:100vh;display:flex;align-items:center;padding-top:8rem;padding-bottom:4rem;
       position:relative;overflow:hidden;
-      pointer-events: auto;
     }
     .hero::before{
       content:'';position:absolute;top:0;left:0;right:0;bottom:0;
@@ -631,3 +628,4 @@
     .mb-1{margin-bottom:.5rem}
 
     .mb-2{margin-bottom:1rem}
+
