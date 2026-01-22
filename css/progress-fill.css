@@ -1,0 +1,94 @@
+@keyframes rainbowShift {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 100% 0%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    @keyframes rainbowShiftReverse {
+      0% { background-position: 100% 0%; }
+      50% { background-position: 0% 0%; }
+      100% { background-position: 100% 0%; }
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { box-shadow: 0 0 10px rgba(255, 0, 128, 0.6), inset 0 0 8px rgba(255, 255, 255, 0.2); }
+      50% { box-shadow: 0 0 20px rgba(0, 255, 200, 0.8), inset 0 0 12px rgba(255, 255, 255, 0.4); }
+    }
+
+    @keyframes hueRotate {
+      0% { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(360deg); }
+    }
+
+    .progress-fill {
+      background-size: 200% 100% !important;
+      box-shadow: 0 0 15px rgba(255, 0, 128, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.3) !important;
+      animation: glowPulse 3s ease-in-out infinite !important;
+    }
+
+    /* Variant 1: Classic Rainbow */
+    .progress-fill:nth-child(1) {
+      background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #ff0000) !important;
+      animation: rainbowShift 2.5s linear infinite, glowPulse 3s ease-in-out infinite !important;
+    }
+
+    /* Variant 2: Neon Rainbow */
+    .progress-fill:nth-child(2) {
+      background: linear-gradient(90deg, #ff006e, #ffbe0b, #8338ec, #3a86ff, #06ffa5, #ff006e) !important;
+      animation: rainbowShiftReverse 2.8s linear infinite, glowPulse 3s ease-in-out infinite !important;
+    }
+
+    /* Variant 3: Pastel Rainbow */
+    .progress-fill:nth-child(3) {
+      background: linear-gradient(90deg, #ff6b9d, #feca57, #48dbfb, #1dd1a1, #5f27cd, #ff6b9d) !important;
+      animation: rainbowShift 3s linear infinite, glowPulse 3.5s ease-in-out infinite !important;
+    }
+
+    /* Variant 4: Cyber Rainbow */
+    .progress-fill:nth-child(4) {
+      background: linear-gradient(90deg, #00ffff, #ff00ff, #ffff00, #00ff00, #ff0080, #00ffff) !important;
+      animation: rainbowShiftReverse 2.3s linear infinite, glowPulse 2.8s ease-in-out infinite !important;
+    }
+
+    /* Variant 5: Ocean to Fire */
+    .progress-fill:nth-child(5) {
+      background: linear-gradient(90deg, #0099ff, #00ff99, #ffff00, #ff9900, #ff0000, #0099ff) !important;
+      animation: rainbowShift 3.2s linear infinite, glowPulse 3.2s ease-in-out infinite !important;
+    }
+
+    /* Variant 6: Purple to Pink */
+    .progress-fill:nth-child(6) {
+      background: linear-gradient(90deg, #9d4edd, #c77dff, #e0aaff, #ff006e, #d62828, #9d4edd) !important;
+      animation: rainbowShiftReverse 2.6s linear infinite, glowPulse 3.5s ease-in-out infinite !important;
+    }
+
+    /* Cycle for additional skills */
+    .progress-fill:nth-child(7) {
+      background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #ff0000) !important;
+      animation: rainbowShift 2.5s linear infinite, glowPulse 3s ease-in-out infinite !important;
+    }
+
+    .progress-fill:nth-child(8) {
+      background: linear-gradient(90deg, #ff006e, #ffbe0b, #8338ec, #3a86ff, #06ffa5, #ff006e) !important;
+      animation: rainbowShiftReverse 2.8s linear infinite, glowPulse 3s ease-in-out infinite !important;
+    }
+
+    .progress-fill:nth-child(9) {
+      background: linear-gradient(90deg, #ff6b9d, #feca57, #48dbfb, #1dd1a1, #5f27cd, #ff6b9d) !important;
+      animation: rainbowShift 3s linear infinite, glowPulse 3.5s ease-in-out infinite !important;
+    }
+
+    .progress-fill:nth-child(10) {
+      background: linear-gradient(90deg, #00ffff, #ff00ff, #ffff00, #00ff00, #ff0080, #00ffff) !important;
+      animation: rainbowShiftReverse 2.3s linear infinite, glowPulse 2.8s ease-in-out infinite !important;
+    }
+
+    .progress-fill:nth-child(11) {
+      background: linear-gradient(90deg, #0099ff, #00ff99, #ffff00, #ff9900, #ff0000, #0099ff) !important;
+      animation: rainbowShift 3.2s linear infinite, glowPulse 3.2s ease-in-out infinite !important;
+    }
+
+    .progress-fill:nth-child(12) {
+      background: linear-gradient(90deg, #9d4edd, #c77dff, #e0aaff, #ff006e, #d62828, #9d4edd) !important;
+      animation: rainbowShiftReverse 2.6s linear infinite, glowPulse 3.5s ease-in-out infinite !important;
+    }
